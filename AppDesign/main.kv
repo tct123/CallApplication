@@ -1,0 +1,69 @@
+#: import get_color_from_hex kivy.utils.get_color_from_hex
+#: import FadeTransition kivy.uix.screenmanager.FadeTransition
+
+<Spacer@Widget>:
+    size_hint_y: None
+    height: "50dp"
+
+<MainScreen>:
+    id: "main"
+    name: "MainScreen"
+    MDBoxLayout:
+        orientation: "vertical"
+#        md_bg_color: get_color_from_hex("37474fff")
+
+        MDTopAppBar:
+            title: "VoiceMe"
+            elevation: 3
+
+        MDScrollView:
+            MDList:
+                id: call_request_list
+                padding: 10
+                spacing: 8
+
+                CallRequest2:
+
+
+
+    MDFloatingActionButton:
+        elevation: 3
+        icon: "assets/VoiceMe-transparent-big.png"
+        icon_size: "44dp"
+        pos_hint: {"center_x": .85, "center_y": .2}
+        on_release: root.manager.current = "CallScreen"
+
+# Textinputfield ------------------------------------------------------------------------------------------------------>
+    MDBoxLayout:
+        padding: [10, ]
+        spacing: 5
+        size_hint_y:None
+        height: 40
+        TextFieldWithTwoIcon:
+        MDIconButton:
+            elevation: 0
+            size_hint: (None, None)
+            icon: "send"
+            icon_size: "16sp"
+            text_color: [1, 1, 1, 1]
+            md_bg_color: app.theme_cls.accent_color #get_color_from_hex("787878ff")
+            on_release: root.add_card()
+            canvas.before:
+                PushMatrix
+                Rotate:
+                    angle: 45
+                    origin: self.center
+                    canvas.after:
+                        PopMatrix
+
+
+
+
+
+
+
+
+
+
+
+

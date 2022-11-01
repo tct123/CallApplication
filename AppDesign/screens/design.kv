@@ -1,0 +1,132 @@
+#: import get_color_from_hex kivy.utils.get_color_from_hex
+#: import FadeTransition kivy.uix.screenmanager.FadeTransition
+
+
+<MainScreen>:
+    name: "MainScreen"
+
+    MDBottomNavigation:
+        panel_color: get_color_from_hex("#263238ff")
+        text_color_normal: get_color_from_hex("e0e0e0ff")
+        text_color_active: get_color_from_hex("ff5f6d")
+        active_font_size: 10
+        transition: FadeTransition
+
+
+        # Feed -------------------------------------------------------------------------------------------------------->
+        MDBottomNavigationItem:
+            name: "feed_screen"
+            text: "feed"
+            icon: "message-text"
+
+            MDBoxLayout:
+                orientation: "vertical"
+                md_bg_color: get_color_from_hex("37474fff")
+
+                MDTopAppBar:
+                    title: "VoiceMe"
+                    title_color: get_color_from_hex("e0e0e0ff")
+                    elevation: 2
+                    left_action_items: [["icons/VoiceMe-transparent-big.png"]]
+
+                MDScrollView:
+
+                    MDList:
+                        id: call_request_list
+                        padding: 8
+                        spacing: 5
+
+                        CallRequest:
+                        CallRequest:
+                        CallRequest:
+                        CallRequest:
+                        CallRequest:
+                        CallRequest:
+                        CallRequest:
+                        CallRequest:
+                        CallRequest:
+                        CallRequest:
+                        CallRequest:
+                        CallRequest:
+                        CallRequest:
+                        CallRequest:
+                        CallRequest:
+                        CallRequest:
+
+
+            MDFloatingActionButton:
+                icon: "icons/VoiceMe-transparent-big.png"
+                icon_size: "44dp"
+                pos_hint: {"center_x": .85, "center_y": .1}
+                elevation: 2
+                on_release: root.manager.current = "CallScreen"
+
+
+        # Random ------------------------------------------------------------------------------------------------------>
+        MDBottomNavigationItem:
+            name: "random_screen"
+            text: "Random"
+            icon: "phone-in-talk"
+
+            MDBoxLayout:
+                orientation: "vertical"
+                md_bg_color: get_color_from_hex("37474fff")
+
+                MDTopAppBar:
+                    title: "Random"
+                    right_action_items: [["menu"]]
+                    left_action_items: [["icons/VoiceMe-transparent-big.png"]]
+                    elevation: 2
+
+                MDLabel:
+                    text: "RandomScreen"
+                    halign: "center"
+
+
+        # Post -------------------------------------------------------------------------------------------------------->
+        MDBottomNavigationItem:
+            name: "post_screen"
+            text: "Post"
+            icon: "square-edit-outline"
+
+            MDBoxLayout:
+                orientation: "vertical"
+                md_bg_color: get_color_from_hex("37474fff")
+
+                MDTopAppBar:
+                    title: "Post"
+                    right_action_items: [["menu"]]
+                    left_action_items: [["icons/VoiceMe-transparent-big.png"]]
+                    elevation: 2
+
+                MDLabel:
+                    text: "PostScreen"
+                    halign: "center"
+
+
+<CallScreen>:
+    name: "CallScreen"
+
+    MDBoxLayout:
+        orientation: "vertical"
+        name: "MainScreen"
+        MDLabel:
+            text: "This is the new screen"
+            halign: "center"
+        MDRaisedButton:
+            text: "Settings"
+            on_release: app.root.current = "MainScreen"
+            # align the button at the center of the screen
+            pos_hint: {"center_x": .5, "center_y": .5}
+
+
+<SettingsScreen>:
+    MDBoxLayout:
+
+        orientation: "vertical"
+        name: "SettingsScreen"
+
+        MDTopAppBar:
+            title: "Main Screen"
+            left_action_items: [["menu"]]
+            elevation: 10

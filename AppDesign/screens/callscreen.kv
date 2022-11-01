@@ -1,0 +1,37 @@
+<CallScreen>:
+    name: "CallScreen"
+    MDBackdrop:
+        id: backdrop
+        title: "Features"
+        header_text: ""
+
+        MDBackdropBackLayer:
+            MDLabel:
+                text: "Test Text"
+
+        MDBackdropFrontLayer:
+            MDBoxLayout:
+                orientation: "vertical"
+
+                MDLabel:
+                    text: "15:10"
+                    halign: "center"
+
+                MDRelativeLayout:
+                    orientation: "horizontal"
+
+                    MDFloatingActionButton:
+                        elevation: 0
+                        icon: "phone-hangup"
+                        md_bg_color: get_color_from_hex("ff1007ff")
+                        pos_hint: {"center_x": .25, "center_y": .1}
+                        on_release: app.root.current = "MainScreen"
+
+                    MDFloatingActionButton:
+                        elevation: 0
+                        icon: "autorenew"
+                        md_bg_color: get_color_from_hex("3eff55ff")
+                        pos_hint: {"center_x": .75, "center_y": .1}
+                        on_release: app.root.current = "MainScreen"
+
+                Spacer:
